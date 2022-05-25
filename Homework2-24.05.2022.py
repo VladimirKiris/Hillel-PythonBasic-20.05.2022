@@ -1,5 +1,5 @@
 #kindergarden
-group_a = input('input group "a" capacity:  ')
-group_b = input('input group "b" capacity:  ')
-beds = (int(group_a) // 2 + (int(group_a) % 2) + (int(group_b) // 2 ) + int(group_b) % 2)
+group_a = int(input('input group "a" capacity:  '))
+group_b = int(input('input group "b" capacity:  '))
+beds = (group_a // 2 + (group_a % 2) + (group_b // 2 ) + group_b % 2)
 print('we will need ', beds, "beds")
