@@ -7,7 +7,7 @@ start_time = time.time()
 for check in range(2, a):
     if a % check == 0:
         print("Your number ", a, " is composite")
-    break
+        break
 else:
     print("\nYour number ", a, " is prime")
 print("Prime row before ", a, " is")
