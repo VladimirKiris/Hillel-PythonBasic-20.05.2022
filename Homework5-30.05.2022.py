@@ -1,15 +1,24 @@
 #Numbers sequence
-
-a = []
+sm = 0
+count = 0
+mx = 0
+mn = 0
 while True:
-    x = input("Input int number to list: ")
-    if x == '':
+    x = input("Input int number: ")
+    if not x:
         break
     else:
-        a.append(int(x))
-print("The list is: ", a)
-print("Numbers in the list: ", len(a))
-print("Summary of elements in the list: ", sum(a))
-print("Max number: ", max(a))
-print("Min number: ", min(a))
-print("Average fm list: ", sum(a) / len(a))
+        sm += int(x)
+        count += 1
+        if int(mn) == 0 and int(mx) == 0:
+            mn = x
+            mx = x
+        if int(x) > int(mx):
+            mx = x
+        if int(mn) > int(x):
+            mn = x
+print("Numbers input: ", count)
+print("Summary of elements in the list: ", sm)
+print("Max number: ", mx)
+print("Min number: ", mn)
+print("Average fm list: ", sm / count)
