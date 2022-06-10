@@ -2,7 +2,7 @@
 import random
 n = input("Input random range, more than 0: ")
 n = int(n)
-lst = [random.randint(1, int(n)) for _ in range(n // 2)]
+lst = [random.randint(1, n) for _ in range(n // 2)]
 print("List is: ", lst)
 s = input("Input summary of 2 elements to search: ")
 for i1 in range(n // 2):
