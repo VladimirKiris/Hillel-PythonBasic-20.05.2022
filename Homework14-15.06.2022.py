@@ -1,20 +1,19 @@
 #Finding square root of x, 0 <= x <= (2 ** 31) - 1
 def sq_rt(x):
-    lst = list(range(0,x+1))
+    top = x + 1
+    low = 0
+    mid = top // 2
     while True:
-        l = len(lst)
-        m = l // 2
-        if l == 1:
-            lst = lst[0]
+        mid = (top + low) // 2
+        if mid ** 2 < x and (mid + 1) ** 2 > x:
             break
-        if lst[m] ** 2 > x:
-            lst = lst[0 : m]
-        elif lst[m] ** 2 < x:
-            lst = lst[m: l]
+        if mid ** 2 > x:
+            top = mid
+        elif mid ** 2 < x:
+            low = mid
         else:
-            lst = lst[m]
             break
-    return lst
+    return mid
 a = input("Input number to check square root: ")
 a = int(a)
 print("Square root of",a, "is", sq_rt(a))
