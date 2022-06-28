@@ -1,7 +1,7 @@
 # 2 ** n, 2 is given by user
 
 
-def power(num=int) -> int or float:
+def power(num: int) -> int | float:
     p = 2
     if num == 0:
         p = 1
