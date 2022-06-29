@@ -2,8 +2,8 @@
 """
 Returns maximum length of Game of cities sequence.
 
-List: Odessa Alchevsk Kremenchug Gostomel Lugansk Kirovograd Dnepr Reni Izmail Lviv Poltava Avdeevka Arcyz Zaporozhie Enakievo Voznesensk Konotop
-"""
+List: Odessa Alchevsk Kremenchug Gostomel Lugansk Kirovograd Dnepr Reni Izmail Lviv Poltava Avdeevka Arcyz Zaporozhie
+Enakievo Voznesensk Konotop """
 
 
 def cities_game_rec(list_of_cities: list, city: str = "", cities_seq=None, start: int = 0) -> list:
