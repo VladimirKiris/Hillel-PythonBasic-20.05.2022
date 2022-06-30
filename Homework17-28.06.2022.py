@@ -9,11 +9,9 @@ cities = (
  """
 
 
-def cities_game_rec(list_of_cities: list, city: str = "", cities_seq=None, start: int = 0) -> list:
-    if cities_seq is None:
-        cities_seq = list()
+def cities_game_rec(list_of_cities: list, city=None, cities_seq=None, start=None) -> list:
     clone_cities = list_of_cities.copy()
-    if city != "":
+    if city is not None:
         for i in clone_cities:
             if str(cities_seq[-1])[-1] == i[0]:
                 cities_seq.append(i)
@@ -22,6 +20,7 @@ def cities_game_rec(list_of_cities: list, city: str = "", cities_seq=None, start
                 break
         return cities_seq
     else:
+        cities_seq = list()
         city = clone_cities[start]
         clone_cities.remove(city)
         cities_seq.clear()
