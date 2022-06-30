@@ -3,7 +3,8 @@
 Returns maximum length of Game of cities sequence.
 
 cities = (
-    "Odessa Alchevsk Kremenchug Gostomel Lugansk Kirovograd Dnepr Reni Izmail Lviv Poltava Avdeevka Arcyz Zaporozhie Enakievo Voznesensk Konotop"
+    "Odessa Alchevsk Kremenchug Gostomel Lugansk Kirovograd Dnepr Reni Izmail Lviv Poltava Avdeevka Arcyz Zaporozhie
+    Enakievo Voznesensk Konotop"
 )
  """
 
