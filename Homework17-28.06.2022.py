@@ -2,8 +2,11 @@
 """
 Returns maximum length of Game of cities sequence.
 
-List: Odessa Alchevsk Kremenchug Gostomel Lugansk Kirovograd Dnepr Reni Izmail Lviv Poltava Avdeevka Arcyz Zaporozhie
-Enakievo Voznesensk Konotop """
+cities = (
+    "Odessa Alchevsk Kremenchug Gostomel Lugansk Kirovograd Dnepr "
+    "Reni Izmail Lviv Poltava Avdeevka Arcyz Zaporozhie Enakievo Voznesensk Konotop"
+)
+ """
 
 
 def cities_game_rec(list_of_cities: list, city: str = "", cities_seq=None, start: int = 0) -> list:
@@ -15,11 +18,11 @@ def cities_game_rec(list_of_cities: list, city: str = "", cities_seq=None, start
             if str(cities_seq[-1])[-1] == i[0]:
                 cities_seq.append(i)
                 clone_cities.remove(i)
+                c = cities_game_rec(clone_cities, cities_seq[-1], cities_seq)
                 break
             if i == clone_cities[-1]:
                 return cities_seq
-        c = cities_game_rec(clone_cities, cities_seq[-1], cities_seq)
-        return c
+        return cities_seq
     else:
         city = clone_cities[start]
         clone_cities.remove(city)
@@ -28,11 +31,10 @@ def cities_game_rec(list_of_cities: list, city: str = "", cities_seq=None, start
         d = cities_game_rec(clone_cities, city, cities_seq)
         return d
 
-
 cities = str(input("Please enter cities sequence, divided by space: "))
 cities_list = cities.lower()
 cities_list = cities_list.split()
-cities_list.sort()
+cities_list.sort(reverse=True)
 print("list is", cities_list)
 maximum = 0
 iteration = 0
