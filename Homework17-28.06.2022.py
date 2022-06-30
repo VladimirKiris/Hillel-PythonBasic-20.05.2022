@@ -18,18 +18,16 @@ def cities_game_rec(list_of_cities: list, city: str = "", cities_seq=None, start
             if str(cities_seq[-1])[-1] == i[0]:
                 cities_seq.append(i)
                 clone_cities.remove(i)
-                c = cities_game_rec(clone_cities, cities_seq[-1], cities_seq)
+                cities_game_rec(clone_cities, cities_seq[-1], cities_seq)
                 break
-            if i == clone_cities[-1]:
-                return cities_seq
         return cities_seq
     else:
         city = clone_cities[start]
         clone_cities.remove(city)
         cities_seq.clear()
         cities_seq.append(city)
-        d = cities_game_rec(clone_cities, city, cities_seq)
-        return d
+        return cities_game_rec(clone_cities, city, cities_seq)
+
 
 cities = str(input("Please enter cities sequence, divided by space: "))
 cities_list = cities.lower()
