@@ -6,34 +6,36 @@ cities = (
     "Odessa Alchevsk Kremenchug Gostomel Lugansk Kirovograd Dnepr Reni Izmail Lviv Poltava Avdeevka Arcyz Zaporozhie
     Enakievo Voznesensk Konotop"
 )
- """
+
+cities = ("Караганда Артем Вена Братислава Берлин Варшава Бразилиа Одесса Харбин "
+          "Краков Париж Лондон Женева Милан Барселона Копенгаген Амстердам Акоб"
+          )
+
+"""
 
 
-def cities_game_rec(list_of_cities: list, city=None, cities_seq=None, start=None) -> list:
-    clone_cities = list_of_cities.copy()
-    if city is not None:
-        for i in clone_cities:
-            if str(cities_seq[-1])[-1] == i[0] and i not in cities_seq:
-                cities_seq.append(i)
-                clone_cities.remove(i)
-                cities_game_rec(clone_cities, cities_seq[-1], cities_seq)
-        return cities_seq
-    else:
-        cities_seq = list()
-        city = clone_cities[start]
-        clone_cities.remove(city)
-        cities_seq.append(city)
-        return cities_game_rec(clone_cities, city, cities_seq)
+def chain(start_city: str, list_of_cities: list) -> list:
+    remaining = list(list_of_cities)   # WHY list(list_of_cities), not list_of_cities?!
+    remaining.remove(start_city)
+    next_city = []
+    for i in remaining:
+        if i[0] == start_city[-1]:
+            next_city.append(i)
+    max_chain = []
+    for c in next_city:
+        check_chain = chain(c, remaining)
+        if len(check_chain) > len(max_chain):
+            max_chain = check_chain
+    return [start_city] + max_chain
 
 
 cities = str(input("Please enter cities sequence, divided by space: "))
 cities_list = cities.lower()
 cities_list = cities_list.split()
 print("list is", cities_list)
-maximum = 0
-iteration = 0
-for index in range(len(cities_list)):
-    if len(cities_game_rec(cities_list, start=index)) >= maximum:
-        maximum = len(cities_game_rec(cities_list, start=index))
-        iteration = index
-print("max length is:", maximum, ", sequence is", cities_game_rec(cities_list, start=iteration))
+maximum = list("")
+for city in cities_list:
+    lst = chain(city, cities_list)
+    if len(lst) >= len(maximum):
+        maximum = lst
+print(maximum)
